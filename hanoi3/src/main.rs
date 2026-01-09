@@ -5,16 +5,20 @@ struct Stato {
 }
 
 impl Stato {
-    fn new(millisecondi: Option<u64>, n_max_dischi: usize) -> Self {
-        let mut stato = Stato {
+    fn max_dischi(&self) -> usize {
+        self.n_max_dischi
+    }
+
+    fn nuovo(millisecondi: Option<u64>, n_max_dischi: usize) -> Self {
+        let mut primo_palo = vec![];
+        for n in (1..=n_max_dischi).rev() {
+            primo_palo.push(n as u8);
+        }
+        Self {
             millisecondi,
             n_max_dischi,
-            pali: [vec![], vec![], vec![]],
-        };
-        for n in (1..=stato.n_max_dischi).rev() {
-            stato.pali[0].push(n as u8);
+            pali: [primo_palo, vec![], vec![]],
         }
-        stato
     }
 
     fn display(&self) {
@@ -91,9 +95,21 @@ fn main() -> Result<(), String> {
             )
         )
         .transpose()?;
-    let mut stato = Stato::new(ms, n_dischi);
+    /*
+    let mut primo_palo = vec![];
+    for n in (1..=n_dischi).rev() {
+        primo_palo.push(n as u8);
+    }
+    let mut stato = Stato {
+        millisecondi: ms,
+        n_max_dischi: n_dischi,
+        pali: [primo_palo, vec![], vec![]],
+    };
+    */
+
+    let mut stato = Stato::nuovo(ms, n_dischi);
+
     stato.display();
-    let n_dischi = stato.n_max_dischi;
-    stato.sposta_dischi(n_dischi, 0, 1, 2);
+    stato.sposta_dischi(stato.max_dischi(), 0, 1, 2);
     Ok(())
 }

@@ -60,6 +60,17 @@ fn sposta_dischi(
 }
 
 fn main() -> Result<(), String> {
+    /*
+    let s = "ab";
+    println!("{} {}", s.len(), str::len(s));
+    let mut v = vec![1_000_000, 20, 30, 40];
+    println!("{}", v.len());
+    v.push(500);
+    Vec::push(&mut v, 600);
+    println!("{} {}", v.len(), Vec::len(&v));
+    return Ok(());
+    */
+
     let mut stato = Stato {
         millisecondi: None,
         n_max_dischi: 0,
