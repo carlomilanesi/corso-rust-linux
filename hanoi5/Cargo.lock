@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "hanoi4"
+name = "hanoi5"
 version = "0.1.0"
