@@ -56,17 +56,53 @@ fn mostra_vettore() {
 
 fn mostra_box() {
     println!("---- mostra_box ----");
-    let mut a = 12;
-    let mut r_a = &mut a;
-    *r_a = 13;
-    r_a = &mut a;
-    let mut b: Box<u128> = Box::new(300);
-    println!("b:{}, b:{:p}, &b:{}, &b:{:p}, *b:{}", b, b, &b, &b, *b);
-    *b = 301;
+
+    let a = 11_u32;
+    let mut b = 12_u32;
+    // a = 13_u32; // ILLEGALE
+    b = 14_u32;
+    println!("{}", a); // 11
+    // println!("{:p}", a); // ILLEGALE
+    println!("{}", &a); // 11
+    println!("{:p}", &a); // 0x...
+    // println!("{}", *a); // ILLEGALE
+    // println!("{:p}", *a); // ILLEGALE
+    println!("{}", *&a); // 11
+
+    println!("{:p}", &7); // 0x...
+    println!("{:p}", &(a + b / 2)); // 0x...
+
+    let r_a = &a;
+    let r_15 = &15;
+    println!("{} {} {} {} {}", a, r_a, r_15, *r_a, *r_15); // 11, 11, 15, 11, 15
+
+    // let r_a_m = &mut a; // ILLEGALE
+    let r_15_m = &mut 15;
+    *r_15_m = 16;
+    let _r_b_m = &mut b;
+    let _r_b_i = &b;
+    // _r_b_m = &mut b; // ILLEGALE
+    // _r_b_i = &b; // ILLEGALE
+    let mut _r_m_b_m = &mut b;
+    let mut _r_m_b_i = &b;
+    _r_m_b_m = &mut b;
+    _r_m_b_i = &b;
+
+    let box_i: Box<i16> = Box::new(300_i16);
     println!(
-        "b:{}, b:{:p}, &b:{}, &b:{:p}, *b:{}, *r_a={}",
-        b, b, &b, &b, *b, *r_a
+        "box_i:{}, box_i:{:p}, &box_i:{}, &box_i:{:p}, *box_i:{}",
+        box_i, box_i, &box_i, &box_i, *box_i
     );
+    //*box_i = 301; // ILLEGALE
+    //box_i = box_i; // ILLEGALE
+
+    let mut box_m: Box<i16> = Box::new(400_i16);
+    println!(
+        "box_m:{}, box_m:{:p}, &box_m:{}, &box_m:{:p}, *box_m:{}",
+        box_m, box_m, &box_m, &box_m, *box_m
+    );
+    *box_m = 401;
+    box_m = box_i;
 }
 
 fn main() {
