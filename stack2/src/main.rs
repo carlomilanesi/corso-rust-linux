@@ -1,7 +1,15 @@
+//! Programma che mostra l'uso
+//! dello stack
+//! nel calcolo del fattoriale.
+
 fn scostamento<T>(base: isize, p: &T) -> isize {
     p as *const T as isize - base
 }
 
+/** Restituisce
+ * il fattoriale
+ * dell'argomento `n`.
+ */
 fn fattoriale(base: isize, valori: &mut Vec<(f32, f32)>, n: u32) -> u128 {
     let a = n;
     let b = n;
@@ -35,6 +43,9 @@ fn main() {
 // Show with the command: cargo run && xdg-open memoria.svg
 
 use plotters::prelude::*;
+
+/// Usa il package Plotters per generare un file SVG
+/// che descrive i `valori` ricevuti come argomento.
 fn use_plotters(valori: Vec<(f32, f32)>) -> Result<(), Box<dyn std::error::Error>> {
     //let root = BitMapBackend::new("3.png", (300, 200)).into_drawing_area();
     let root = SVGBackend::new("memoria.svg", (300, 200)).into_drawing_area();
