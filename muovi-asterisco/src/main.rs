@@ -26,6 +26,16 @@ fn main() -> std::io::Result<()> {
                     }
                 }
                 crossterm::event::KeyCode::Esc => break,
+
+                // crossterm::event::KeyCode::Char(carattere) if carattere == 'q' => {
+                //     break;
+                // }
+
+                // crossterm::event::KeyCode::Char(carattere) => {
+                //     if carattere == 'q' {
+                //         break;
+                //     }
+                // }
                 crossterm::event::KeyCode::Char('q') => break,
                 _ => {}
             },
