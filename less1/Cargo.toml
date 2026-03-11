@@ -1,0 +1,9 @@
+[package]
+name = "less1"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bstr = "1.12.1"
+crossterm = "0.29.0"
+memmap2 = "0.9.9"

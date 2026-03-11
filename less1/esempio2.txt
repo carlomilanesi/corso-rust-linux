@@ -1,0 +1,9 @@
+€ abcdefghijklmnopqrstuvwxyz 0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ
+accentate: ÀÈÉÒ àèéò
+
+
+
+
+
+
+Riga 9
