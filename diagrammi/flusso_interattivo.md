@@ -1,11 +1,11 @@
 ```mermaid
-%% start ([ ])
-%% input [/ Input /]
-%% processing [ Processing ]
-%% output > Output ]
-%% decision {{ Is Ok? }}
-%% success ([ ]); style success fill:#cfc
-%% failure ([ ]); style failure fill:#b00
+%% start([ "" ])
+%% input[/Input/]
+%% processing[Processing]
+%% output>Output]
+%% decision{{Is Ok?}}
+%% success([ "" ]); style success fill:#cfc
+%% failure([ "" ]); style failure fill:#b00
 flowchart TD
     start([ "" ])
     setup["Impostazione iniziale\n(Setup)"]
